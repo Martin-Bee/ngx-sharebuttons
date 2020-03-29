@@ -1,17 +1,22 @@
-<ng-scrollbar shown="hover" [compact]="true">
+<ng-scrollbar shown="hover">
   <header>
     <h1>Share Buttons Component</h1>
   </header>
 
   <div class="page-content container">
-
     <section>
       <section-title>Overview</section-title>
-      <p><code class="hljs" [textContent]="'<share-buttons>'"></code> is a component to add a collection of share
-        buttons.</p>
+      <p>
+        <code class="hljs" [textContent]="'<share-buttons>'"></code> is a
+        component to add a collection of share buttons.
+      </p>
       <note icon="book">
-        This component comes with <code class="hljs">@ngx-share/buttons</code> <a
-        href="https://murhafsousli.github.io/ngx-sharebuttons/buttons" target="_blank">package</a>.
+        This component comes with <code class="hljs">@ngx-share/buttons</code>
+        <a
+          href="https://murhafsousli.github.io/ngx-sharebuttons/buttons"
+          target="_blank"
+          >package</a
+        >.
       </note>
     </section>
 
@@ -29,17 +34,23 @@
     <section>
       <section-title>Import the styles</section-title>
 
-      <p>Import share buttons theme in the global style
+      <p>
+        Import share buttons theme in the global style
         <b>"app/src/style.scss"</b>
       </p>
 
       <hl-code [code]="code.styles"></hl-code>
 
-      <note>The default theme is optional, you can replace it with other theme or create your own theme from scratch,
-        see the <a routerLink="/styling-guide">styling guide</a></note>
+      <note
+        >The default theme is optional, you can replace it with other theme or
+        create your own theme from scratch, see the
+        <a routerLink="/styling-guide">styling guide</a></note
+      >
 
-      <note icon="coffee">Don't forget to import the <b>FontAwesome</b> icons, see the <a routerLink="/icons">icons
-        guide</a></note>
+      <note icon="coffee"
+        >Don't forget to import the <b>FontAwesome</b> icons, see the
+        <a routerLink="/icons">icons guide</a></note
+      >
     </section>
 
     <section>
@@ -66,37 +77,43 @@
       <section-title>API</section-title>
 
       <mat-table [dataSource]="dataSource">
-
         <!-- Type Column -->
         <ng-container matColumnDef="type">
-          <mat-header-cell *matHeaderCellDef fxFlex="100px"> Type</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="100px">
+            Type</mat-header-cell
+          >
           <mat-cell *matCellDef="let row" fxFlex="100px">
             <mat-chip-list>
-              <mat-chip class="property" [class.property-input]="row.type==='input'"> {{ row.type }}</mat-chip>
+              <mat-chip
+                class="property"
+                [class.property-input]="row.type === 'input'"
+              >
+                {{ row.type }}</mat-chip
+              >
             </mat-chip-list>
           </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef fxFlex="100px"> Name</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef fxFlex="100px">
+            Name</mat-header-cell
+          >
           <mat-cell *matCellDef="let row" fxFlex="100px">
-            <b>{{row.name}}</b>
+            <b>{{ row.name }}</b>
           </mat-cell>
         </ng-container>
 
         <!-- Description Column -->
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.description}}</mat-cell>
+          <mat-cell *matCellDef="let row"> {{ row.description }}</mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
       </mat-table>
-
     </section>
-
   </div>
 
   <footer></footer>

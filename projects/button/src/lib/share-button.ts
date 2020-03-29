@@ -1,14 +1,21 @@
-import { Component, Input, Output, ViewChild, HostBinding, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { ShareService, ShareDirective } from '@ngx-share/core';
+import {
+  Component,
+  Input,
+  Output,
+  ViewChild,
+  HostBinding,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from "@angular/core";
+import { ShareService, ShareDirective } from "@ngx-share/core";
 
 @Component({
-  selector: 'share-button',
-  templateUrl: './share-button.html',
-  styleUrls: ['./share-button.scss'],
+  selector: "share-button",
+  templateUrl: "./share-button.html",
+  styleUrls: ["./share-button.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShareButton {
-
   /** The sharing link */
   url: string;
 
@@ -18,13 +25,13 @@ export class ShareButton {
   /** Button name */
   button: string;
 
-  @Input('button') set createButton(button: string) {
+  @Input("button") set createButton(button: string) {
     this.shareCount = 0;
     this.button = button;
   }
 
   /** Set the sharing link */
-  @Input('url') set setUrl(url: string) {
+  @Input("url") set setUrl(url: string) {
     this.shareCount = 0;
     this.url = url;
   }
@@ -75,18 +82,16 @@ export class ShareButton {
   @Output() closed = new EventEmitter<string>();
 
   /** Set theme as button class */
-  @HostBinding('class') get buttonClass() {
+  @HostBinding("class") get buttonClass() {
     return `sb-button sb-${this.theme}`;
   }
 
-  @ViewChild(ShareDirective) ref: ShareDirective;
+  @ViewChild(ShareDirective, { static: true }) ref: ShareDirective;
 
-  constructor(private _share: ShareService) {
-  }
+  constructor(private _share: ShareService) {}
 
   onCount(count: number) {
     this.shareCount = count;
     this.count.emit(count);
   }
-
 }
